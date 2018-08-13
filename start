@@ -1,0 +1,13 @@
+echo "Removing old server pid's if any..."
+rm -f tmp/pids/server.pid
+
+# Instala as Gems
+echo "Checking bundle dependencies..."
+bundle check || bundle install
+
+Instala os pacotes JS
+yarn install
+
+# Roda nosso servidor
+echo "Booting up..."
+bundle exec puma -C config/puma.rb
