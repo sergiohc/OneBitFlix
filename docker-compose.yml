@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   postgres:
     image: 'postgres:9.5'
@@ -14,16 +14,19 @@ services:
       - "8080:8080"
   
   app:
-    build: .
-    command: bash start
-    volumes:
-      - .:/onebitfli 
-    ports:
-      - "3000:3000"
     depends_on:
       - postgres
-    volumes_from:
-      - box
+      - webpacker
+    build: .
+    command: bash start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/onebitflix
+      - app-gems:/app-gems
+    stdin_open: true
+    tty: true
+
 
   box:
     image: busybox
@@ -32,4 +35,4 @@ services:
 
 volumes:
   postgres:
-  box:
+  app-gems:
