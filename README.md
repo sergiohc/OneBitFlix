@@ -2,7 +2,7 @@
 
 Site baseado no NetFlix
 
-<h3 align="center">Stack</h3>
+<h3 align="left">Stack</h3>
 
 <!--platinum start-->
 <table>
