@@ -20,11 +20,7 @@ Site baseado no NetFlix
           >
         </a>
       </td>
-      <td align="center" valign="middle">
-        <a href="https://www.ruby-lang.org" title="Ruby - language" target="_blank">
-          <img width="100px" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg">
-        </a>
-      </td>
+
       <td align="center" valign="middle">
         <a href="https://rubyonrails.org/" title="Rails" target="_blank">
           <img width="100px" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg">
@@ -32,6 +28,11 @@ Site baseado no NetFlix
       </td>
     </tr><tr></tr>
     <tr>
+      <td align="center" valign="middle">
+        <a href="https://www.ruby-lang.org" title="Ruby - language" target="_blank">
+          <img width="100px" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg">
+        </a>
+      </td>
       <td align="center" valign="middle">
         <a href="https://www.elephantsql.com/" title="PostgreSQL" target="_blank">
           <img width="100px" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg">
