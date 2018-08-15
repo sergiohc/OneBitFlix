@@ -3,7 +3,12 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "caniuse-lite": "^1.0.30000877",
+    "css-loader": "^1.0.0",
     "material-design-icons-iconfont": "^3.0.3",
+    "rails-erb-loader": "^5.4.2",
     "vue": "^2.5.17",
     "vue-loader": "14.2.2",
     "vue-template-compiler": "^2.5.17",
@@ -11,6 +16,6 @@
     "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "2.11.2"
   }
 }
