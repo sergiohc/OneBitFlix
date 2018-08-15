@@ -37,6 +37,11 @@ Site baseado no NetFlix
           <img width="100px" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg">
         </a>
       </td>
+      <td align="center" title="Vuetify" valign="middle">
+        <a href="https://vuetifyjs.com" target="_blank">
+          <img width="148px" src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/vuetify.png">
+        </a>
+      </td>
     </tr><tr></tr>
   </tbody>
 </table>
