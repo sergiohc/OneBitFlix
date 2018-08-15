@@ -10,4 +10,4 @@ yarn install
 
 # Roda nosso servidor
 echo "Booting up..."
-Bundle exec puma -C config/puma.rb
+bundle exec puma -C config/puma.rb
