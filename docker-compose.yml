@@ -7,17 +7,23 @@ services:
 
   webpacker:
     build: .
-    command: bundle exec bin/webpack-dev-server
+    env_file:
+      - '.env.docker'
+    command: bin/webpack-dev-server --inline true
     volumes:
       - .:/onebitflix
     ports:
-      - "8080:8080"
+      - '3035:3035'
+    tty: false
+    stdin_open: false
   
   app:
     depends_on:
       - postgres
       - webpacker
     build: .
+    env_file:
+      - '.env.docker'
     command: bash start
     ports:
       - "3000:3000"
@@ -27,12 +33,7 @@ services:
     stdin_open: true
     tty: true
 
-
-  box:
-    image: busybox
-    volumes:
-      - /box
-
 volumes:
   postgres:
   app-gems:
+  webpacker:

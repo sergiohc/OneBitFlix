@@ -1,6 +1,5 @@
 FROM ruby:2.4.1
 
-#Run rm -fr /var/cache/apk/*
 RUN apt-get update -qq && apt-get install\
   apt-utils bash -y \
   build-essential libpq-dev
@@ -24,4 +23,4 @@ COPY Gemfile ./
 # Seta o path para as Gems
 ENV BUNDLE_PATH /app-gems
 # Copia nosso código para dentro do container
-COPY . .
+COPY . $INSTALL_PATH
