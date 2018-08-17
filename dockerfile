@@ -20,6 +20,9 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 # Copia o nosso Gemfile para dentro do container
 COPY Gemfile ./
+
+COPY package.json yarn.lock ./
+RUN yarn --pure-lockfile
 # Seta o path para as Gems
 ENV BUNDLE_PATH /app-gems
 # Copia nosso código para dentro do container
