@@ -1,1 +1,5 @@
-export default {}
+import Watchable from './watchable';
+
+export default {
+  Watchable
+}
