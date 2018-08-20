@@ -99,7 +99,7 @@
     color: white;
     font-size: 20px !important;
     font-family: 'Source Sans Pro';
-    font-weight: 600;
+    font-weight: 600 ;
   }
   .btn {
     margin-right: 0px;

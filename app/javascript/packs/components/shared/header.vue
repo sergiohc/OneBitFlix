@@ -39,19 +39,19 @@
 </template>
 
 <script>
-  import Logo from '../../assets/logo.png';
-  export default {
-    data () { 
-      return {
-        logo: Logo
-      }
-    }
+import Logo from "../../assets/logo.png";
+export default {
+  data() {
+    return {
+      logo: Logo
+    };
   }
+};
 </script>
 
 <style scoped>
-  .logo {
-    width: 120px !important;
-    margin-top: 10px;
-  }
+.logo {
+  width: 120px !important;
+  margin-top: 10px;
+}
 </style>
