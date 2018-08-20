@@ -2,7 +2,7 @@
   "name": "onebitflix",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "3.5.5",
     "add": "^2.0.6",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",

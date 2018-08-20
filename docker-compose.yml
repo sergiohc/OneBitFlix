@@ -9,29 +9,28 @@ services:
     build: .
     env_file:
       - '.env.docker'
-    command: bundle exec ./bin/webpack-dev-server 
+    command: ./bin/webpack-dev-server --inline true 
     volumes:
       - .:/onebitflix
+      - app-gems:/app-gems
     ports:
       - '3035:3035'
-    tty: false
-    stdin_open: false
   
   app:
     depends_on:
       - postgres
       - webpacker
     build: .
-    env_file:
-      - '.env.docker'
-    command: bash start
+    stdin_open: true
+    tty: true
     ports:
       - "3000:3000"
+    command: bash start
     volumes:
       - .:/onebitflix
       - app-gems:/app-gems
-    stdin_open: true
-    tty: true
+    env_file:
+      - '.env.docker'
 
 volumes:
   postgres:
