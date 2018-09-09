@@ -2,9 +2,9 @@
   <div v-if="watchable != null">
     <v-layout class="content" mt-3 wrap row>
       <v-flex md10 offset-md1 xs7 offset-xs1 sm9 mt-4>
-        <h4 class="title white--text" >{{ watchable.attributes.title }}</h4>
+        <h4 class="title white--text">{{ watchable.attributes.title }}</h4>
       </v-flex>
-      
+
       <v-flex md1 xs1 class="text-md-center" mt-4>
         <v-btn flat @click="close()">
           <v-icon color="white">clear</v-icon>
@@ -31,70 +31,76 @@
       </v-flex>
     </v-layout>
   </div>
-  
+
 </template>
 
 <script>
-  import Details from './_details.vue';
-  import Reviews from './_reviews.vue';
-  // ------- Dados Fake apenas para testarmos o layout -------- //
-  const watchable = {
-    id: 1,
-    type: 'serie',
-    attributes: {
-      title: 'Ruby On Rails API Completa',
-      reviews_count: 2,
-      description: 'Saber como criar e consumir API’s é fundamental para qualquer programador, então nessa pequena série nós vamos ver o que é essencial para criar uma usando RoR.',
-      category: 'Ruby On Rails',
-      thumbnail_cover_url: 'https://onebitcode.com/wp-content/uploads/2018/05/rails-admin-serie-cover.png'
+import Details from './_details.vue';
+import Reviews from './_reviews.vue';
+import { mapActions } from 'vuex'
+import { mapState } from 'vuex'
+export default {
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+    closeDetails: {
+      type: Function,
+      required: true,
     }
-  }
-  export default {
-    props: {
-      id: {
-        type: Number,
-        required: true,
-      },
-      type: {
-        type: String,
-        required: true,
-      },
-      closeDetails:  {
-        type: Function,
-        required: true,
-      }
-    },
-    data () {
-      return { 
-        contentActive: 'details',
-        watchable: watchable
-      }
-    },
-    methods: {
-      changeContent (content){
-        this.contentActive = content;
-      },
-      close () {
-       this.closeDetails();
-      }
-    },
-    components: {
-      Details: Details,
-      Reviews: Reviews
+  },
+  data () {
+    return {
+      contentActive: 'details',
     }
-  }
+  },
+  methods: {
+    changeContent (content) {
+      this.contentActive = content;
+    },
+    close () {
+      this.closeDetails();
+    },
+    ...mapActions({
+      getWatchable: 'Watchable/getWatchable'
+    })
+  },
+  components: {
+    Details: Details,
+    Reviews: Reviews
+  },
+  watch: {
+    id: function () {
+      this.getWatchable({ id: this.id, type: this.type })
+    },
+    serie: function () {
+      this.getWatchable({ id: this.id, type: this.type })
+    }
+  },
+  mounted () {
+    this.getWatchable({ id: this.id, type: this.type })
+  },
+  computed: mapState({
+    watchable: state => state.Watchable.watchable,
+  })
+}
 </script>
 
 <style scoped>
-  .navigation{
-    background-color: black;
-  }
-  .content{
-    background-color: black;
-    font-family: 'Source Sans Pro';
-  }
-  .title{
-    font-weight: 600;
-    font-size: 28px !important;
-  }
+.navigation {
+  background-color: black;
+}
+.content {
+  background-color: black;
+  font-family: "Source Sans Pro";
+}
+.title {
+  font-weight: 600;
+  font-size: 28px !important;
+}
 </style>
