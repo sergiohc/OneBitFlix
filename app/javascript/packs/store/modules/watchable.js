@@ -1,4 +1,4 @@
-import Api from '../../api';
+import Api from "../../api";
 
 const Watchable = {
   namespaced: true,
@@ -23,8 +23,9 @@ const Watchable = {
       Api.Watchable.getFeatured()
         .then(response => response.data)
         .then(watchable => {
-          context.commit('setFeatured', watchable)
-        }).catch(function (error) {
+          context.commit("setFeatured", watchable);
+        })
+        .catch(function(error) {
           console.log(error);
         });
     },
@@ -32,8 +33,9 @@ const Watchable = {
       Api.Watchable.getKeepWatching()
         .then(response => response.data)
         .then(watchables => {
-          context.commit('setKeepWatching', watchables)
-        }).catch(function (error) {
+          context.commit("setKeepWatching", watchables);
+        })
+        .catch(function(error) {
           console.log(error);
         });
     },
@@ -41,8 +43,9 @@ const Watchable = {
       Api.Watchable.getCategories()
         .then(response => response.data)
         .then(categories => {
-          context.commit('setCategories', categories)
-        }).catch(function (error) {
+          context.commit("setCategories", categories);
+        })
+        .catch(function(error) {
           console.log(error);
         });
     }

@@ -1,5 +1,5 @@
 FROM ruby:2.4.1
-
+RUN apt-get update -qq && apt-get install -y vim nano
 RUN apt-get update -qq && apt-get install\
   apt-utils bash -y \
   build-essential libpq-dev

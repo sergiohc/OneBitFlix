@@ -1,25 +1,25 @@
-import Http from './http';
+import Http from "./http";
 
 export default {
   getFeatured() {
-    return Http.get('/dashboard', {
+    return Http.get("/dashboard", {
       params: {
-        type: 'highlight'
+        type: "highlight"
       }
-    })
+    });
   },
   getCategories() {
-    return Http.get('/dashboard', {
+    return Http.get("/dashboard", {
       params: {
-        type: 'category'
+        type: "category"
       }
     });
   },
   getKeepWatching() {
-    return Http.get('/dashboard', {
+    return Http.get("/dashboard", {
       params: {
-        type: 'keep_watching'
+        type: "keep_watching"
       }
     });
   }
-}
+};
