@@ -1,5 +1,6 @@
-import Watchable from './watchable';
+import Watchable from "./watchable";
 
 export default {
-  Watchable
-}
+  Watchable,
+  Review
+};
