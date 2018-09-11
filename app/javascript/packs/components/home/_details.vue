@@ -19,11 +19,11 @@
       </v-layout>
       <v-layout row wrap mt-4>
         <v-flex sm3 md3>
-          <v-btn color="red"
-                 text-color="white"
-                 large
-                 class="white--text"
-                 :to="'/watch/'+ watchable.id" >Assistir
+          <v-btn color="red" text-color="white" large :to="'/watch/'+ watchable.id" class="white--text" v-if="watchable.type == 'movie'">Assistir
+          </v-btn>
+          <v-btn color="red" text-color="white" large :to="'/watch/'+ watchable.attributes.last_watched_episode" class="white--text" v-else-if="watchable.attributes.last_watched_episode">Assistir
+          </v-btn>
+          <v-btn color="red" text-color="white" large class="white--text" :to="'/watch/'+ watchable.relationships.episodes.data[0].id" v-else>Assistir
           </v-btn>
         </v-flex>
         <v-flex sm3 md4>
@@ -38,44 +38,44 @@
     </v-flex>
     <v-flex md5 offset-md1 hidden-sm-and-down>
       <v-layout row wrap mt-12 center xs-10>
-        <img :src="watchable.attributes.thumbnail_cover_url" class="responsive-img"/>
+        <img :src="watchable.attributes.thumbnail_cover_url" class="responsive-img" />
       </v-layout>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-  export default {
-    props: {
-      watchable: {
-        type: Object,
-        required: true
-      }
-    },
-    data () {
-      return { }
+export default {
+  props: {
+    watchable: {
+      type: Object,
+      required: true
     }
+  },
+  data () {
+    return {}
   }
+}
 </script>
 
 <style scoped>
-  .subtitle{
-    font-size: 22px;
-  }
-  .text{
-    font-size: 16px;
-  }
-  .btn{
-    color: white;
-    font-weight: 600;
-    font-family: 'Source Sans Pro';
-    margin-left: 0px;
-  }
-  .watch-btn {
-    border-color: white !important;
-    border-style: solid;
-  }
-  .chip{
-    margin-left: 0px;
-  }
+.subtitle {
+  font-size: 22px;
+}
+.text {
+  font-size: 16px;
+}
+.btn {
+  color: white;
+  font-weight: 600;
+  font-family: "Source Sans Pro";
+  margin-left: 0px;
+}
+.watch-btn {
+  border-color: white !important;
+  border-style: solid;
+}
+.chip {
+  margin-left: 0px;
+}
 </style>
