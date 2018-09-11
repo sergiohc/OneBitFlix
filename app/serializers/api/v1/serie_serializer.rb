@@ -34,4 +34,16 @@ class Api::V1::SerieSerializer
       AWS_BUCKET.object("thumbnails/#{object.featured_thumbnail_key}").presigned_url(:get, expires_in: 120)
     end
   end
+
+  attribute :episodes do |object|
+    object.episodes.map do |e|
+    {
+      title: e.title,
+      id: e.id,
+      thumbnail_url:
+      AWS_BUCKET.object("thumbnails/#{e.thumbnail_key}").presigned_url(:get,
+      expires_in: 120)
+    }
+    end
+  end
 end
